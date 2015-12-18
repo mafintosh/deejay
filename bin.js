@@ -10,7 +10,7 @@ var toPort = require('hash-to-port')
 
 var argv = minimist(process.argv.slice(2), {alias: {station: 's'}, '--': true})
 var port = argv.port || (argv.station ? toPort(argv.station) : 24242)
-var name = 'deejay-' + (argv.station || 'default')
+var name = 'deejay-' + (argv.station || 'default') + '.local'
 
 if (argv._[0]) {
   var source = null
@@ -23,10 +23,16 @@ if (argv._[0]) {
   })
   server.listen(port)
   register(name)
+  connect('localhost')
+} else {
+  lookup(name, function (err, host) {
+    if (err) throw err
+    connect(host)
+  })
 }
 
 
-lookup(name, function (err, host) {
+function connect (host) {
   var socket = net.connect(port, host)
   var proc = spawn('mplayer', ['-cache', '1024'].concat(argv['--'] || []).concat('-'), {stdio: [null, 'inherit', 'inherit']})
   socket.pipe(proc.stdin)
@@ -37,4 +43,4 @@ lookup(name, function (err, host) {
   proc.on('exit', function (code) {
     process.exit(code)
   })
-})
+}
