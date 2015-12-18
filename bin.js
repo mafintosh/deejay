@@ -34,7 +34,7 @@ if (argv._[0]) {
 
 function connect (host) {
   var socket = net.connect(port, host)
-  var proc = spawn('mplayer', ['-cache', '1024'].concat(argv['--'] || []).concat('-'), {stdio: [null, 'inherit', 'inherit']})
+  var proc = spawn('mplayer', [].concat(argv['--'] || []).concat('-'), {stdio: [null, 'inherit', 'inherit']})
   socket.pipe(proc.stdin)
   proc.on('error', function () {
     console.error('mplayer is required (brew install mplayer / apt-get install mplayer)')
