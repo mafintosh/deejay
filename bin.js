@@ -31,7 +31,6 @@ if (argv._[0]) {
   })
 }
 
-
 function connect (host) {
   var socket = net.connect(port, host)
   var proc = spawn('mplayer', [].concat(argv['--'] || []).concat('-'), {stdio: [null, 'inherit', 'inherit']})

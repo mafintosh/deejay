@@ -24,6 +24,13 @@ If there are multiple DJs on the same network you can use the `--station [name]`
 deejay --station=eurodance music.mp3
 ```
 
+## Requirements
+
+deejay currently requires mplayer.
+
+* OSX: `brew install mplayer`
+* Ubuntu/debian: `apt-get install mplayer`
+
 ## License
 
 MIT
