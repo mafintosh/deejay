@@ -1,0 +1,26 @@
+{
+  "name": "deejay",
+  "version": "0.0.0",
+  "description": "Music player that broadcasts to everyone on the same network",
+  "main": "bin.js",
+  "bin": {
+    "deejay": "./bin.js"
+  },
+  "dependencies": {
+    "hash-to-port": "^1.0.0",
+    "lookup-multicast-dns": "^1.0.3",
+    "minimist": "^1.2.0",
+    "register-multicast-dns": "^1.1.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/deejay.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/deejay/issues"
+  },
+  "homepage": "https://github.com/mafintosh/deejay"
+}
