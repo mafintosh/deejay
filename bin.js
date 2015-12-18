@@ -25,8 +25,8 @@ if (argv._[0]) {
   register(name)
   connect('localhost')
 } else {
-  lookup(name, function (err, host) {
-    if (err) throw err
+  lookup(name, function onlookup (err, host) {
+    if (err) setTimeout(lookup.bind(null, name, onlookup), 1000)
     connect(host)
   })
 }
