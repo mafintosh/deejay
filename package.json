@@ -1,6 +1,6 @@
 {
   "name": "deejay",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Music player that broadcasts to everyone on the same network",
   "main": "bin.js",
   "bin": {
